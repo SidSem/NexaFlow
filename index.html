@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Primary Meta Tags -->
+    <title>NexaFlow | Plan Clearly. Build Beautifully.</title>
+    <meta name="title" content="NexaFlow | Plan Clearly. Build Beautifully." />
+    <meta name="description" content="A modern frontend productivity workspace for projects, tasks, teams and productivity." />
+    <meta name="theme-color" content="#090d16" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://nexaflow.vercel.app/" />
+    <meta property="og:title" content="NexaFlow | Plan Clearly. Build Beautifully." />
+    <meta property="og:description" content="A modern frontend productivity workspace for projects, tasks, teams and productivity." />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content="NexaFlow | Plan Clearly. Build Beautifully." />
+    <meta property="twitter:description" content="A modern frontend productivity workspace for projects, tasks, teams and productivity." />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Anti-FOUC Theme Script -->
+    <script>
+      (function() {
+        try {
+          const stored = localStorage.getItem('nexaflow_preferences');
+          if (stored) {
+            const parsed = JSON.parse(stored);
+            const theme = parsed.theme || 'dark';
+            if (theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+              document.documentElement.classList.add('dark');
+            } else {
+              document.documentElement.classList.remove('dark');
+            }
+            if (parsed.highContrast) {
+              document.documentElement.classList.add('high-contrast');
+            }
+            if (parsed.largerText) {
+              document.documentElement.classList.add('text-lg-base');
+            }
+          } else {
+            document.documentElement.classList.add('dark');
+          }
+        } catch (e) {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
+  </head>
+  <body class="bg-surface-light text-slate-900 dark:bg-surface-dark dark:text-slate-100 font-sans antialiased selection:bg-brand-500/20 selection:text-brand-400 min-h-screen">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
